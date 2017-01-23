@@ -111,7 +111,8 @@ public class ToDoListAdapter extends BaseAdapter {
 
 		// TODO - Must also set up an OnCheckedChangeListener,
 		// which is called when the user toggles the status checkbox
-		statusView.setOnCheckedChangeListener(new StatusChangeListener(toDoItem, itemLayout));
+		statusView.setOnCheckedChangeListener(new StatusChangeListener(toDoItem));
+
 
 		// TODO - Display Priority in a TextView
 		final android.widget.TextView priorityView = (android.widget.TextView) itemLayout.findViewById(R.id.priorityView);
@@ -138,32 +139,16 @@ public class ToDoListAdapter extends BaseAdapter {
 
 
 	private class StatusChangeListener implements OnCheckedChangeListener {
-		public StatusChangeListener(ToDoItem toDoItem, View view) {
+		public StatusChangeListener(ToDoItem toDoItem) {
 			this.toDoItem = toDoItem;
-			this.view = view;
 		}
 		private final ToDoItem toDoItem;
-		private final View view;
 
 		@Override
 		public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+			Log.i(TAG,"Entered onCheckedChanged()");
 			toDoItem.setStatus(isChecked ? ToDoItem.Status.DONE : ToDoItem.Status.NOTDONE);
 		}
 	}
 
-	private class PrioritySelectedListener implements AdapterView.OnItemSelectedListener {
-		private final ToDoItem toDoItem;
-
-		public PrioritySelectedListener(ToDoItem toDoItem) {
-			this.toDoItem = toDoItem;
-		}
-
-		@Override
-		public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-			toDoItem.setPriority(ToDoItem.Priority.valueFromPosition(position));
-		}
-
-		@Override
-		public void onNothingSelected(AdapterView<?> parent){}
-	}
 }

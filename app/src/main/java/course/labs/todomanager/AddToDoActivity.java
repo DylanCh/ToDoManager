@@ -93,7 +93,7 @@ public class AddToDoActivity extends Activity {
 
 
 				// TODO - Indicate result and finish
-
+				Log.i(TAG,"Entered cancelButton.OnClickListener.onClick()");
 				finish();
                 
                 
@@ -127,7 +127,7 @@ public class AddToDoActivity extends Activity {
 
 
 				// gather ToDoItem data
-
+				Log.i(TAG,"Entered submitButton.OnClickListener.onClick()");
 
 				// TODO - Get the current Priority
 				Priority priority = getPriority();

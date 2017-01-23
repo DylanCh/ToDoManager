@@ -54,9 +54,9 @@ public class ToDoManagerActivity extends ListActivity {
 
 
 		// NOTE: You can remove this block once you've implemented the assignment
-		if (null == footerView) {
-			return;
-		}
+//		if (null == footerView) {
+//			return;
+//		}
 		// TODO - Add footerView to ListView
 		listView.addFooterView(footerView);
 
@@ -66,9 +66,9 @@ public class ToDoManagerActivity extends ListActivity {
 			@Override
 			public void onClick(View v) {
 
-
+				Log.i(TAG,"Entered footerView.OnClickListener.onClick()");
 				//TODO - Implement OnClick().
-				startActivityForResult(new Intent(ToDoManagerActivity.this, AddToDoActivity.class)
+				startActivityForResult(new Intent(getApplicationContext(), AddToDoActivity.class)
 						, ADD_TODO_ITEM_REQUEST);
 			}
 		});
